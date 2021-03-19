@@ -11,9 +11,9 @@ const { SERVER_PORT, CONNECTION_STRING } = process.env;
 app.use(express.json());
 
 massive({
-  connectionString:CONNECTION_STRING,
-  ssl:{rejectUnauthorised:false}
-})
+  connectionString: CONNECTION_STRING,
+  ssl: {rejectUnauthorized: false}
+  })
 .then(dbInstance =>
 
   app.set("db", dbInstance));
@@ -27,8 +27,6 @@ app.get("/api/planes/getPlanes/:passenger", controller.getPlanes);
 app.get("/api/planes/newPlanes", controller.newPlanes);
 
 app.get("/api/planes/clearPlanes", controller.clearPlanes);
-
-app.get("/api/planes/initializePlanes", controller.dropPlanes);
 
 app.get("/api/planes/initializePlanes", controller.initializePlanes);
 

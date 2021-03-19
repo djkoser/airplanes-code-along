@@ -10,7 +10,10 @@ const { SERVER_PORT, CONNECTION_STRING } = process.env;
 
 app.use(express.json());
 
-massive(CONNECTION_STRING)
+massive({
+  connectionString:CONNECTION_STRING,
+  ssl:{rejectUnauthorised:false}
+})
 .then(dbInstance =>
 
   app.set("db", dbInstance));

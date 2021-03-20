@@ -54,7 +54,7 @@ module.exports = {
   initializePlanes: (req, res, next) => {
     const dbInstance = req.app.get("db");
 
-    dbInstance.initialize_airplanes()
+    dbInstance.seed()
       .then((planes) => {
         res.status(200).send(planes)
       })
